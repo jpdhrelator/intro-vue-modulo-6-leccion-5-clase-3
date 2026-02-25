@@ -17,7 +17,8 @@ const router= createRouter({
         }, 
         {
             path:'/mensajero/:id',
-            component: Mensajero
+            component: Mensajero,
+            name:"messenger"
         },
         {
             path:'/mensajero/gringo',

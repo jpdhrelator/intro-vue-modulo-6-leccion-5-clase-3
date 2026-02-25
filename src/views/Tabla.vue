@@ -31,13 +31,38 @@
                 </tr>
             </tbody>            
         </table>
-        <button @click="retroceder">retroceder</button>
+        <button @click="retroceder">retroceder</button> |
             <button @click="avanzar">avanzar</button>
             <br>
-            <button @click="salir">Salir</button>
-            <button @click="salir2">Salir2</button>
-            <button @click="salirConVolver">Salir Con Volver</button>
+            <button @click="salir">Salir</button> |
+            <button @click="salir2">Salir2</button> |
+            <button @click="salirConVolver">Salir Con Volver</button> |
             <button @click="salirSinVolver">Salir Sin Volver</button>
+
+            <hr/>
+
+            <router-link :to="{ 
+                query:{ 
+                    pagina:'1', 
+                }
+                    }">Avanzar</router-link> <br/>
+            <router-link :to="{ 
+                path:'mensajero',
+                query:{ 
+                    nombre:'Rosa', 
+                    apellido:'Rojas'
+                }
+                    }">Ir a Mensajero</router-link> <br/>
+            <router-link :to="{
+                name:'messenger', 
+                query: { 
+                    nombre:'Rosa', 
+                apellido:'Rojas'}, 
+                params:{
+                    id:'2'
+                    }
+                    }">Ir a Mensajero 2</router-link>
+
     </div>
 </template>
 
@@ -83,8 +108,9 @@ async function salir(){
 }
 function salir2(){
    router.push({
-        path:'mensajero',
+        name:'messenger',
         query:{ nombre:'Rosa', apellido:'Rojas'},
+        params:{id:"1"},
         replace:true
     })
 }
